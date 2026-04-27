@@ -70,7 +70,7 @@ h1 {
   width: 80%;
   max-width: 300px;
 
-  background: rgba(255,255,255,0.4);
+background: rgba(255,255,255,0.4);
   backdrop-filter: blur(10px);
 
   border-radius: 12px;
@@ -109,15 +109,15 @@ h1 {
   color: var(--color-music);
   cursor: pointer;
 }
-
 /* ✨ sparkle */
 .sparkle {
   position: fixed;
   width: 6px;
   height: 6px;
-  background: #d80a5f;
+  background: #ff7eb3;
   border-radius: 50%;
-  opacity: 0.7;
+  opacity: 0.8;
+  box-shadow: 0 0 10px #ff7eb3, 0 0 20px #ffb6d9;
   animation: float 6s linear infinite;
 }
 
@@ -176,11 +176,15 @@ function playMusic() {
   music.play();
 }
 
-/* 🔊 เสียงคลิก */
-function playClick() {
-  var click = document.getElementById("clickSound");
-  click.currentTime = 0;
-  click.play();
+function playMusic() {
+  var music = document.getElementById("bgMusic");
+
+  if (music.paused) {
+    music.play();
+  } else {
+    music.pause();
+  }
+}click.play();
 }
 
 /* ✨ sparkle */
