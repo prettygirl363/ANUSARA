@@ -39,7 +39,6 @@ img {
   transition: transform 0.25s ease;
 }
 
-/* 🌸 hover รูป */
 img:hover {
   transform: scale(1.05);
 }
@@ -70,7 +69,7 @@ h1 {
   width: 80%;
   max-width: 300px;
 
-background: rgba(255,255,255,0.4);
+  background: linear-gradient(135deg, #ffd6e7, #fff0f5);
   backdrop-filter: blur(10px);
 
   border-radius: 12px;
@@ -85,6 +84,7 @@ background: rgba(255,255,255,0.4);
 
 .link:hover {
   transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255,92,137,0.6);
 }
 
 /* 💥 เด้งตอนกด */
@@ -95,7 +95,8 @@ background: rgba(255,255,255,0.4);
 
 @keyframes pressBounce {
   0%   { transform: scale(1); }
-  50%  { transform: scale(0.9); }
+  40%  { transform: scale(0.85); }
+  70%  { transform: scale(1.1); }
   100% { transform: scale(1.05); }
 }
 
@@ -109,6 +110,7 @@ background: rgba(255,255,255,0.4);
   color: var(--color-music);
   cursor: pointer;
 }
+
 /* ✨ sparkle */
 .sparkle {
   position: fixed;
@@ -154,7 +156,7 @@ background: rgba(255,255,255,0.4);
 <a class="link" href="#" onclick="playClick()">ตัวอย่างงาน</a>
 <a class="link" href="#" onclick="playClick()">เลือกตูน</a>
 
-<button class="music-btn" onclick="playClick(); playMusic()">🎵 เล่นเพลง</button>
+<button class="music-btn" onclick="playClick(); playMusic()">🎵 เล่น / หยุดเพลง</button>
 
 <!-- 🎵 เพลง -->
 <audio id="bgMusic" loop>
@@ -170,12 +172,14 @@ background: rgba(255,255,255,0.4);
 
 <script>
 
-/* 🎵 เพลง */
-function playMusic() {
-  var music = document.getElementById("bgMusic");
-  music.play();
+/* 🔊 เสียงคลิก */
+function playClick() {
+  var click = document.getElementById("clickSound");
+  click.currentTime = 0;
+  click.play();
 }
 
+/* 🎵 เพลง (toggle) */
 function playMusic() {
   var music = document.getElementById("bgMusic");
 
@@ -184,7 +188,6 @@ function playMusic() {
   } else {
     music.pause();
   }
-}click.play();
 }
 
 /* ✨ sparkle */
