@@ -25,10 +25,26 @@ body {
   padding: 30px;
 }
 
+/* รูปปกติ */
 img {
   width: 120px;
   border-radius: 50%;
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  transition: transform 0.25s ease;
+}
+
+/* 💖 เด้งนุ่ม kawaii */
+img:hover {
+  animation: kawaiiBounce 0.8s ease;
+}
+
+/* 🌸 keyframes นุ่มๆ */
+@keyframes kawaiiBounce {
+  0%   { transform: scale(1); }
+  25%  { transform: scale(1.08); }  /* ขยายเบาๆ */
+  50%  { transform: scale(0.97); }  /* ยุบเล็กน้อย */
+  75%  { transform: scale(1.04); }  /* เด้งนิดๆ */
+  100% { transform: scale(1); }
 }
   
 
