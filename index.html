@@ -12,19 +12,18 @@
   --small-size: 18px;
   --button-size: 18px;
 
-  /* 🎨 สีฟอนต์แต่ละจุด */
-  --color-title: #d80a5f;     /* หัวข้อ */
-  --color-big: #d80a5f;       /* ข้อความหลัก */
-  --color-small: #8b5e3c;     /* ข้อความรอง */
-  --color-button: #d80a5f;    /* ปุ่ม */
-  --color-music: #d80a5f;     /* ปุ่มเพลง */
+  --color-title: #d80a5f;
+  --color-big: #d80a5f;
+  --color-small: #8b5e3c;
+  --color-button: #d80a5f;
+  --color-music: #d80a5f;
 }
 
 body {
   margin: 0;
   font-family: Arial;
   background: #fff8f0;
-  color: #333; /* สีหลักของเว็บ */
+  color: #333;
   text-align: center;
 }
 
@@ -37,6 +36,12 @@ img {
   width: 120px;
   border-radius: 50%;
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  transition: transform 0.25s ease;
+}
+
+/* 🌸 hover รูป */
+img:hover {
+  transform: scale(1.05);
 }
 
 /* 💖 หัวข้อ */
@@ -45,14 +50,13 @@ h1 {
   color: var(--color-title);
 }
 
-/* 🔥 ข้อความหลัก */
+/* 🔥 ข้อความ */
 .big-text {
   font-size: var(--big-size);
   font-weight: bold;
   color: var(--color-big);
 }
 
-/* 🌸 ข้อความรอง */
 .small-text {
   font-size: var(--small-size);
   color: var(--color-small);
@@ -72,16 +76,27 @@ h1 {
   border-radius: 12px;
   border: 1px solid rgba(216,10,95,0.4);
 
-  color: var(--color-button); /* 👈 สีฟอนต์ปุ่ม */
+  color: var(--color-button);
   text-decoration: none;
   font-size: var(--button-size);
 
   transition: 0.3s;
 }
 
-/* ✨ hover */
 .link:hover {
   transform: scale(1.05);
+}
+
+/* 💥 เด้งตอนกด */
+.link:active,
+.music-btn:active {
+  animation: pressBounce 0.25s ease;
+}
+
+@keyframes pressBounce {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(0.9); }
+  100% { transform: scale(1.05); }
 }
 
 /* 🎵 ปุ่มเพลง */
@@ -91,7 +106,7 @@ h1 {
   background: rgba(216,10,95,0.1);
   border-radius: 12px;
   border: 1px solid rgba(216,10,95,0.4);
-  color: var(--color-music); /* 👈 สีฟอนต์ */
+  color: var(--color-music);
   cursor: pointer;
 }
 
@@ -100,7 +115,7 @@ h1 {
   position: fixed;
   width: 6px;
   height: 6px;
-  background: var(--main-color);
+  background: #d80a5f;
   border-radius: 50%;
   opacity: 0.7;
   animation: float 6s linear infinite;
@@ -134,24 +149,41 @@ h1 {
 <p class="big-text">ミ รับทำ ป้ายคิ้วท์ๆ กึ่ง Ads สไตล์น่ารัก ✨</p>
 <p class="small-text">♡ เริ่มต้นเพียง 89 บาท</p>
 
-<a class="link" href="#">เช็คคิว</a>
-<a class="link" href="#">รายละเอียดการสั่งงาน</a>
-<a class="link" href="#">ตัวอย่างงาน</a>
-<a class="link" href="#">เลือกตูน</a>
+<a class="link" href="#" onclick="playClick()">เช็คคิว</a>
+<a class="link" href="#" onclick="playClick()">รายละเอียดการสั่งงาน</a>
+<a class="link" href="#" onclick="playClick()">ตัวอย่างงาน</a>
+<a class="link" href="#" onclick="playClick()">เลือกตูน</a>
 
-<button class="music-btn" onclick="playMusic()">🎵 เล่นเพลง</button>
+<button class="music-btn" onclick="playClick(); playMusic()">🎵 เล่นเพลง</button>
+
+<!-- 🎵 เพลง -->
 <audio id="bgMusic" loop>
   <source src="https://raw.githubusercontent.com/prettygirl363/ANUSARA/main/v09044g40000cl6q7pvog65g8sdrhv60.mp3" type="audio/mpeg">
+</audio>
+
+<!-- 🔊 เสียงคลิก -->
+<audio id="clickSound">
+  <source src="https://raw.githubusercontent.com/prettygirl363/ANUSARA/main/click.mp3" type="audio/mpeg">
 </audio>
 
 </div>
 
 <script>
+
+/* 🎵 เพลง */
 function playMusic() {
   var music = document.getElementById("bgMusic");
   music.play();
 }
 
+/* 🔊 เสียงคลิก */
+function playClick() {
+  var click = document.getElementById("clickSound");
+  click.currentTime = 0;
+  click.play();
+}
+
+/* ✨ sparkle */
 for (let i = 0; i < 30; i++) {
   let s = document.createElement("div");
   s.className = "sparkle";
@@ -159,6 +191,7 @@ for (let i = 0; i < 30; i++) {
   s.style.animationDuration = (3 + Math.random() * 5) + "s";
   document.body.appendChild(s);
 }
+
 </script>
 
 </body>
