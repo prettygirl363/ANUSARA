@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>Anusara Store</title>
+
+<style>
+
+:root {
+  --title-size: 30px;
+  --big-size: 24px;
+  --small-size: 18px;
+  --button-size: 18px;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+  background: linear-gradient(135deg, #111, #1a1a1a);
+  color: white;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.container {
+  padding: 30px;
+}
+
+img {
+  width: 120px;
+  border-radius: 50%;
+  box-shadow: 0 0 20px #ff69b4;
+}
+
+h1 {
+  font-size: var(--title-size);
+}
+
+.big-text {
+  font-size: var(--big-size);
+  font-weight: bold;
+}
+
+.small-text {
+  font-size: var(--small-size);
+}
+
+.link {
+  display: block;
+  margin: 12px auto;
+  padding: 14px;
+  width: 80%;
+  max-width: 300px;
+  background: linear-gradient(45deg, #ff4d6d, #ff69b4);
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  font-size: var(--button-size);
+  transition: 0.3s;
+}
+
+/* ✨ ปุ่มวิ้ง */
+.link:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #ff69b4;
+}
+
+/* 🎵 ปุ่มเพลง */
+.music-btn {
+  margin-top: 20px;
+  padding: 12px 25px;
+  background: linear-gradient(45deg, #ff69b4, #ff85c1);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* ✨ sparkle */
+.sparkle {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: float 6s linear infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<img src="https://via.placeholder.com/150">
+
+<h1>✧˖° ꒰🍓🍵 Anusara Store 🧚🏻‍♀️🐿️ ˚˖✧</h1>
+
+<p class="big-text">ミ รับทำ ป้ายคิ้วท์ๆ กึ่ง Ads สไตล์น่ารัก ✨</p>
+<p class="small-text">♡ เริ่มต้นเพียง 89 บาท</p>
+
+<a class="link" href="#">เช็คคิว</a>
+<a class="link" href="#">รายละเอียดการสั่งงาน</a>
+<a class="link" href="#">ตัวอย่างงาน</a>
+<a class="link" href="#">เลือกตูน</a>
+
+<!-- 🎵 เพลง -->
+<button class="music-btn" onclick="playMusic()">🎵 เล่นเพลง</button>
+<audio id="bgMusic" loop>
+  <source src="your-music.mp3" type="audio/mpeg">
+</audio>
+
+</div>
+
+<script>
+
+/* 🎵 เล่นเพลง */
+function playMusic() {
+  var music = document.getElementById("bgMusic");
+  music.play();
+}
+
+/* ✨ สร้างประกาย */
+for (let i = 0; i < 30; i++) {
+  let s = document.createElement("div");
+  s.className = "sparkle";
+  s.style.left = Math.random() * 100 + "vw";
+  s.style.animationDuration = (3 + Math.random() * 5) + "s";
+  document.body.appendChild(s);
+}
+
+</script>
+
+</body>
+</html>
