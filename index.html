@@ -11,13 +11,14 @@
   --big-size: 24px;
   --small-size: 18px;
   --button-size: 18px;
+  --main-color: #d80a5f; /* 💖 สีหลัก */
 }
 
 body {
   margin: 0;
   font-family: Arial;
   background: #fff8f0;
-  color: #333;
+  color: var(--main-color); /* ใช้ทั้งเว็บ */
   text-align: center;
 }
 
@@ -25,7 +26,7 @@ body {
   padding: 30px;
 }
 
-/* 🖼️ รูป + kawaii */
+/* 🖼️ รูป */
 img {
   width: 120px;
   border-radius: 50%;
@@ -35,7 +36,7 @@ img {
 
 img:hover {
   animation: kawaiiBounce 0.8s ease;
-  box-shadow: 0 0 20px #ffd6e0;
+  box-shadow: 0 0 20px rgba(216,10,95,0.4);
 }
 
 @keyframes kawaiiBounce {
@@ -46,10 +47,13 @@ img:hover {
   100% { transform: scale(1); }
 }
 
+/* 💖 หัวข้อ */
 h1 {
   font-size: var(--title-size);
+  color: var(--main-color);
 }
 
+/* ข้อความ */
 .big-text {
   font-size: var(--big-size);
   font-weight: bold;
@@ -59,57 +63,55 @@ h1 {
   font-size: var(--small-size);
 }
 
-/* 💎 ปุ่มใส glass */
+/* 💎 ปุ่ม glass */
 .link {
-  color: #d80a5f
-}
   display: block;
   margin: 12px auto;
   padding: 14px;
   width: 80%;
   max-width: 300px;
 
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 
   border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.6);
+  border: 1px solid rgba(216,10,95,0.4);
 
-  color: #333;
+  color: var(--main-color);
   text-decoration: none;
   font-size: var(--button-size);
 
   transition: 0.3s;
 }
 
-/* ✨ hover */
+/* ✨ hover ปุ่ม */
 .link:hover {
   transform: scale(1.05);
   background: rgba(255, 255, 255, 0.6);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 25px rgba(216,10,95,0.3);
 }
 
 /* 🎵 ปุ่มเพลง */
 .music-btn {
   margin-top: 20px;
   padding: 12px 25px;
-  background: linear-gradient(45deg, #ffb3c6, #ffc2d1);
-  border: none;
+  background: rgba(216,10,95,0.1);
+  border: 1px solid rgba(216,10,95,0.4);
   border-radius: 12px;
-  color: #333;
+  color: var(--main-color);
   cursor: pointer;
   font-size: 16px;
 }
 
-/* ✨ sparkle โทนครีม */
+/* ✨ sparkle */
 .sparkle {
   position: fixed;
   width: 6px;
   height: 6px;
-  background: #ffd6a5;
+  background: var(--main-color);
   border-radius: 50%;
-  opacity: 0.8;
+  opacity: 0.7;
   animation: float 6s linear infinite;
 }
 
@@ -154,7 +156,6 @@ h1 {
 </div>
 
 <script>
-
 function playMusic() {
   var music = document.getElementById("bgMusic");
   music.play();
@@ -167,7 +168,6 @@ for (let i = 0; i < 30; i++) {
   s.style.animationDuration = (3 + Math.random() * 5) + "s";
   document.body.appendChild(s);
 }
-
 </script>
 
 </body>
